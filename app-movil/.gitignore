@@ -1,0 +1,27 @@
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Secretos
+.env
+.env*.local
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Nativo generado (quita estas dos líneas si editaste esas carpetas)
+android/
+ios/
+
+# Logs y sistema
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.metro-health-check*
+.DS_Store
+Thumbs.db
