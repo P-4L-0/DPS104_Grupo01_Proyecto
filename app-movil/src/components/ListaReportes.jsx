@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { TarjetaReporte } from "./TarjetaReporte";
-import {reportesMock } from "..data/reportesMock";
+import { reportesIniciales } from "../data/reportesMock";
 
 export function ListaReportes({ reportes, onSeleccionarReporte }) {
   if (!reportes || reportes.length === 0) {
