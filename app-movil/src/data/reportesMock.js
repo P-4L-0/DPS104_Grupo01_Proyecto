@@ -6,7 +6,7 @@ export const reportesIniciales = [
     ubicacion: "Entrada en porton 6 bache",
     estado: "Pendiente",
     fecha: "16 Nov 2026",
-    imagenUrl: "https://placehold.co/400x200/e2e8f0/1e293b?text=Foto+Bache"
+    imagenUrl: "https://placehold.co/400x200/fef3c7/1e293b?text=Foto+Bache"
   },
   {
     id: "REP-002",
@@ -15,7 +15,7 @@ export const reportesIniciales = [
     ubicacion: "Detras de Pinacoteca",
     estado: "En revisión",
     fecha: "15 Nov 2026",
-    imagenUrl: "https://placehold.co/400x200/fef3c7/92400e?text=Foto+Basura"
+    imagenUrl: "https://placehold.co/400x200/e2e8f0/92400e?text=Foto+Basura"
   },
   {
     id: "REP-003",
