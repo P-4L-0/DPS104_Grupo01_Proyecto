@@ -25,15 +25,20 @@ export function TarjetaReporte({
 }) {
   const colores = coloresDeEstado(estado);
 
+  const urlFinal = imagenUrl?.includes('placehold.co') && !imagenUrl.includes('.png')
+    ? imagenUrl.replace('?', '.png?')
+    : imagenUrl;
+
   return (
     <Pressable
       onPress={onPress}
       disabled={!onPress}
       style={({ pressed }) => [styles.tarjeta, pressed && styles.presionada]}
     >
+
       {imagenUrl ? (
         <Image
-          source={{ uri: imagenUrl }}
+          source={{ uri: urlFinal }}
           style={styles.imagen}
           resizeMode="cover"
         />
