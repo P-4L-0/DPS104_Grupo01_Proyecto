@@ -1,545 +1,559 @@
 .appPage {
-  min-height: 100vh;
-  background-color: #0d1117;
+    min-height: 100vh;
+    background-color: #0d1117;
 }
 
 .appMain {
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .appMainFeed {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 }
 
 .appLayout {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
 }
 
 .appStream {
-  flex: 1 1 0%;
-  min-width: 0;
-  width: 100%;
+    flex: 1 1 0%;
+    min-width: 0;
+    width: 100%;
 }
 
 .sidebarAside {
-  width: 100%;
-  min-width: 0;
+    width: 100%;
+    min-width: 0;
 }
 
 /* Botón primario */
 .btnPrimary {
-  background-color: #2f75ff;
-  color: #ffffff;
-  font-weight: 800;
-  border: none;
-  cursor: pointer;
-  transition: background-color 150ms ease;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #2f75ff;
+    color: #ffffff;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .btnPrimary:hover {
-  background-color: #4b88ff;
+    background-color: #4b88ff;
 }
 
 /* Header */
 .siteHeader {
-  background-color: rgba(22, 27, 34, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #252d3a;
-  position: sticky;
-  top: 0;
-  z-index: 50;
+    background-color: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #252d3a;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
 .siteHeaderInner {
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
 }
 
 .brandBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: opacity 150ms ease;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 150ms ease;
 }
 
 .brandBtn:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .brandBadge {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(to bottom, #0f47af 0 34%, #f7fbff 34% 66%, #0f47af 66%);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        to bottom,
+        #0f47af 0 34%,
+        #f7fbff 34% 66%,
+        #0f47af 66%
+    );
 }
 
 .brandBadgeText {
-  color: #0f47af;
-  font-weight: 900;
-  font-size: 9px;
+    color: #0f47af;
+    font-weight: 900;
+    font-size: 9px;
 }
 
 .brandName {
-  font-size: 0.875rem;
-  font-weight: 800;
-  color: #f0f4f8;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #f0f4f8;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .brandNameAccent {
-  color: #4fb3ff;
+    color: #4fb3ff;
 }
 
 .siteHeaderActions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .siteHeaderTagline {
-  font-size: 0.75rem;
-  color: #52627a;
-  display: none;
+    font-size: 0.75rem;
+    color: #52627a;
+    display: none;
 }
 
 .headerCta {
-  font-size: 0.75rem;
-  padding: 0.625rem 0.75rem;
-  border-radius: 0.5rem;
-  font-family: inherit;
+    font-size: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.5rem;
+    font-family: inherit;
 }
 
 .headerCtaShort {
-  display: inline;
+    display: inline;
 }
 
 .headerCtaFull {
-  display: none;
+    display: none;
 }
 
 /* Hero */
 .hero {
-  position: relative;
-  overflow: hidden;
-  background-color: #0d1117;
-  border-bottom: 1px solid #252d3a;
+    position: relative;
+    overflow: hidden;
+    background-color: #0d1117;
+    border-bottom: 1px solid #252d3a;
 }
 
 .heroFlagAccent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0.25rem;
-  background: linear-gradient(to bottom, #0f47af, #ffffff, #0f47af);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.25rem;
+    background: linear-gradient(to bottom, #0f47af, #ffffff, #0f47af);
 }
 
 .heroGlow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse at top right, rgba(47, 117, 255, 0.14), transparent 58%);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at top right,
+        rgba(47, 117, 255, 0.14),
+        transparent 58%
+    );
 }
 
 .heroContainer {
-  position: relative;
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2rem 1.25rem;
+    position: relative;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1.25rem;
 }
 
 .heroTop {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
 }
 
 .heroBadgeRow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .heroFlagMini {
-  display: flex;
-  gap: 0.25rem;
+    display: flex;
+    gap: 0.25rem;
 }
 
 .heroFlagStripe {
-  width: 1rem;
-  height: 0.75rem;
-  border-radius: 0.125rem;
+    width: 1rem;
+    height: 0.75rem;
+    border-radius: 0.125rem;
 }
 
 .heroFlagStripeBlue {
-  background-color: #0f47af;
+    background-color: #0f47af;
 }
 
 .heroFlagStripeWhite {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .heroEyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  color: #6b7a93;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+    font-size: 10px;
+    font-weight: 700;
+    color: #6b7a93;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .heroTitle {
-  font-size: 2.25rem;
-  font-weight: 900;
-  color: #f0f4f8;
-  line-height: 1;
-  margin: 0 0 0.5rem 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #f0f4f8;
+    line-height: 1;
+    margin: 0 0 0.5rem 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .heroTitleAccent {
-  color: #4fb3ff;
+    color: #4fb3ff;
 }
 
 .heroTitleWhite {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .heroSubtitle {
-  font-size: 0.875rem;
-  color: #6b7a93;
-  max-width: 24rem;
-  line-height: 1.625;
-  margin: 0.75rem 0 0 0;
+    font-size: 0.875rem;
+    color: #6b7a93;
+    max-width: 24rem;
+    line-height: 1.625;
+    margin: 0.75rem 0 0 0;
 }
 
 .heroCtaBox {
-  width: 100%;
-  flex-shrink: 0;
-  text-align: left;
+    width: 100%;
+    flex-shrink: 0;
+    text-align: left;
 }
 
 .heroCtaBtn {
-  width: 100%;
-  justify-content: center;
-  font-size: 0.875rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 24px rgba(47, 117, 255, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 24px rgba(47, 117, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .heroCtaHint {
-  font-size: 11px;
-  color: #52627a;
-  margin: 0.5rem 0 0 0;
-  text-align: center;
+    font-size: 11px;
+    color: #52627a;
+    margin: 0.5rem 0 0 0;
+    text-align: center;
 }
 
 /* Stats */
 .statsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.625rem;
-  margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+    margin-top: 2rem;
 }
 
 .statCard {
-  background-color: #161b22;
-  border-radius: 0.75rem;
-  border: 1px solid #252d3a;
-  padding: 0.875rem;
+    background-color: #161b22;
+    border-radius: 0.75rem;
+    border: 1px solid #252d3a;
+    padding: 0.875rem;
 }
 
 .statCard_total {
-  border-color: #252d3a;
+    border-color: #252d3a;
 }
 
 .statCard_reported {
-  border-color: rgba(127, 29, 29, 0.4);
+    border-color: rgba(127, 29, 29, 0.4);
 }
 
 .statCard_inprogress {
-  border-color: rgba(146, 64, 14, 0.4);
+    border-color: rgba(146, 64, 14, 0.4);
 }
 
 .statCard_resolved {
-  border-color: rgba(6, 78, 59, 0.4);
+    border-color: rgba(6, 78, 59, 0.4);
 }
 
 .statCardValue {
-  font-size: 1.5rem;
-  font-weight: 900;
-  line-height: 1.2;
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .statCardValue_total {
-  color: #f0f4f8;
+    color: #f0f4f8;
 }
 
 .statCardValue_reported {
-  color: #f87171;
+    color: #f87171;
 }
 
 .statCardValue_inprogress {
-  color: #fcd34d;
+    color: #fcd34d;
 }
 
 .statCardValue_resolved {
-  color: #34d399;
+    color: #34d399;
 }
 
 .statCardLabel {
-  font-size: 11px;
-  color: #6b7a93;
-  margin: 0.25rem 0 0 0;
-  font-weight: 500;
+    font-size: 11px;
+    color: #6b7a93;
+    margin: 0.25rem 0 0 0;
+    font-weight: 500;
 }
 
 /* Controles */
 .controlsBar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .filterGroup {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    flex-wrap: wrap;
 }
 
 .filterBtn {
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  background-color: #161b22;
-  border: 1px solid #252d3a;
-  color: #6b7a93;
-  cursor: pointer;
-  transition: all 150ms ease;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: #161b22;
+    border: 1px solid #252d3a;
+    color: #6b7a93;
+    cursor: pointer;
+    transition: all 150ms ease;
 }
 
 .filterBtn:hover {
-  border-color: #3a4a5a;
-  color: #a0aec0;
+    border-color: #3a4a5a;
+    color: #a0aec0;
 }
 
 .filterBtnActive {
-  background-color: #2f75ff;
-  border-color: #2f75ff;
-  color: #ffffff;
+    background-color: #2f75ff;
+    border-color: #2f75ff;
+    color: #ffffff;
 }
 
 .viewToggle {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 0.125rem;
-  background-color: #161b22;
-  border: 1px solid #252d3a;
-  border-radius: 0.5rem;
-  padding: 0.125rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.125rem;
+    background-color: #161b22;
+    border: 1px solid #252d3a;
+    border-radius: 0.5rem;
+    padding: 0.125rem;
 }
 
 .viewToggleBtn {
-  display: flex;
-  flex: 1 1 0%;
-  align-items: center;
-  justify-content: center;
-  gap: 0.375rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  background: transparent;
-  border: none;
-  color: #6b7a93;
-  cursor: pointer;
-  transition: all 150ms ease;
+    display: flex;
+    flex: 1 1 0%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    color: #6b7a93;
+    cursor: pointer;
+    transition: all 150ms ease;
 }
 
 .viewToggleBtn:hover {
-  color: #a0aec0;
+    color: #a0aec0;
 }
 
 .viewToggleBtnActive {
-  background-color: #2f75ff;
-  color: #ffffff;
+    background-color: #2f75ff;
+    color: #ffffff;
 }
 
 /* Chips */
 .categoryChips {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  margin-bottom: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
 }
 
 .categoryChip {
-  flex-shrink: 0;
-  padding: 0.25rem 0.625rem;
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 700;
-  background-color: #161b22;
-  border: 1px solid #252d3a;
-  color: #6b7a93;
-  cursor: pointer;
-  transition: all 150ms ease;
+    flex-shrink: 0;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    background-color: #161b22;
+    border: 1px solid #252d3a;
+    color: #6b7a93;
+    cursor: pointer;
+    transition: all 150ms ease;
 }
 
 .categoryChip:hover {
-  border-color: #3a4a5a;
+    border-color: #3a4a5a;
 }
 
 .categoryChipActive {
-  background-color: rgba(47, 117, 255, 0.2);
-  color: #72a4ff;
-  border-color: rgba(47, 117, 255, 0.5);
+    background-color: rgba(47, 117, 255, 0.2);
+    color: #72a4ff;
+    border-color: rgba(47, 117, 255, 0.5);
 }
 
 /* Grid y textos */
 .issuesGrid {
+<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(0, minmax(3, 1fr));
   
   
 
 
+=======
+    display: grid;
+    grid-template-columns: repeat(0, minmax(3, 1fr));
+>>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 .emptyStateTitle {
-  font-weight: 700;
-  color: #a0aec0;
-  margin: 0;
+    font-weight: 700;
+    color: #a0aec0;
+    margin: 0;
 }
 
 .emptyStateSubtitle {
-  font-size: 0.875rem;
-  color: #6b7a93;
-  margin: 0.25rem 0 0 0;
+    font-size: 0.875rem;
+    color: #6b7a93;
+    margin: 0.25rem 0 0 0;
 }
 
 /* Responsive */
 @media (min-width: 640px) {
-  .appMainFeed {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
+    .appMainFeed {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 
-  .headerCta {
-    padding: 0.625rem 1rem;
-  }
+    .headerCta {
+        padding: 0.625rem 1rem;
+    }
 
-  .headerCtaShort {
-    display: none;
-  }
+    .headerCtaShort {
+        display: none;
+    }
 
-  .headerCtaFull {
-    display: inline;
-  }
+    .headerCtaFull {
+        display: inline;
+    }
 
-  .heroContainer {
-    padding: 2.75rem 1.5rem;
-  }
+    .heroContainer {
+        padding: 2.75rem 1.5rem;
+    }
 
-  .heroTop {
-    flex-direction: row;
-  }
+    .heroTop {
+        flex-direction: row;
+    }
 
-  .heroTitle {
-    font-size: 3rem;
-  }
+    .heroTitle {
+        font-size: 3rem;
+    }
 
-  .heroCtaBox {
-    width: auto;
-    text-align: right;
-  }
+    .heroCtaBox {
+        width: auto;
+        text-align: right;
+    }
 
-  .heroCtaBtn {
-    width: auto;
-  }
+    .heroCtaBtn {
+        width: auto;
+    }
 
-  .heroCtaHint {
-    text-align: right;
-  }
+    .heroCtaHint {
+        text-align: right;
+    }
 
-  .statsGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
+    .statsGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
 
-  .statCard {
-    padding: 1rem;
-    margin-bottom: 0.875rem;
-  }
+    .statCard {
+        padding: 1rem;
+        margin-bottom: 0.875rem;
+    }
 
-  .statCardValue {
-    font-size: 1.875rem;
+    .statCardValue {
+        font-size: 1.875rem;
+    }
 
-  }
+    .controlsBar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-  .controlsBar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+    .viewToggle {
+        width: auto;
+    }
 
-  .viewToggle {
-    width: auto;
-  }
+    .viewToggleBtn {
+        flex: none;
+        padding: 0.375rem 0.75rem;
+    }
 
-  .viewToggleBtn {
-    flex: none;
-    padding: 0.375rem 0.75rem;
-  }
-
-  .issuesGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
+    .issuesGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 768px) {
+<<<<<<< HEAD
   .siteHeaderTagline {
     display: block;
   }
@@ -547,14 +561,23 @@
     grid-template-columns: repeat(3, minmax(3, 1fr));
   }
    
+=======
+    .siteHeaderTagline {
+        display: block;
+    }
+    .issuesGrid {
+        grid-template-columns: repeat(3, minmax(3, 1fr));
+    }
+>>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 @media (min-width: 1024px) {
-  .appLayout {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+    .appLayout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 
+<<<<<<< HEAD
   .sidebarAside {
     width: 18rem;
     flex-shrink: 0;
@@ -568,21 +591,37 @@
      gap: 1rem;
      
   }
+=======
+    .sidebarAside {
+        width: 18rem;
+        flex-shrink: 0;
+        height: auto;
+        margin: 1rem;
+    }
+
+    .issuesGrid {
+        grid-template-columns: repeat(3, minmax(3, 1fr));
+        display: grid;
+        gap: 1rem;
+    }
+>>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 .adminBtn {
-  border-radius: 0.5rem;
-  border: 1px solid #303949;
-  background-color: #161b22;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #a0aec0;
-  cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
+    border-radius: 0.5rem;
+    border: 1px solid #303949;
+    background-color: #161b22;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a0aec0;
+    cursor: pointer;
+    transition:
+        border-color 0.15s ease,
+        color 0.15s ease;
 }
 
 .adminBtn:hover {
-  border-color: #2f75ff;
-  color: #72a4ff;
+    border-color: #2f75ff;
+    color: #72a4ff;
 }
