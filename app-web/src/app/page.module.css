@@ -515,7 +515,7 @@
 
   .statCardValue {
     font-size: 1.875rem;
-    
+
   }
 
   .controlsBar {
@@ -568,4 +568,21 @@
      gap: 1rem;
      
   }
+}
+
+.adminBtn {
+  border-radius: 0.5rem;
+  border: 1px solid #303949;
+  background-color: #161b22;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.adminBtn:hover {
+  border-color: #2f75ff;
+  color: #72a4ff;
 }
