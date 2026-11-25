@@ -69,7 +69,7 @@ export default function App() {
 
       
 
-      <main className={`${styles.appMain} ${styles.appMainFeed}`}>
+    
         <div className={styles.appLayout}>
           {/* Main stream */}
           <div className={styles.appStream}>
@@ -110,22 +110,21 @@ export default function App() {
               ))}
             </div>
 
-               {/* Seguimiento de Reportes */}
-          <aside className={`${styles.statCard} ${styles.sidebarAside}`}>
-            <p className={styles.emptyStateTitle}>Reportes seguidos</p>
-            <p className={styles.emptyStateSubtitle}>Aquí aparecerán tus casos guardados.</p>
-          </aside>
-
+              
             {/* Stream */}
             <div className={styles.issuesGrid}>
               {/* 2. Renderizamos la lista pasándole los datos */}
               <ListaReportes reportes={reportesIniciales} />
             </div>
           </div>
+           {/* Seguimiento de Reportes */}
+          <aside className={`${styles.statCard} ${styles.sidebarAside}`}>
+            <p className={styles.emptyStateTitle}>Reportes seguidos</p>
+            <p className={styles.emptyStateSubtitle}>Aquí aparecerán tus casos guardados.</p>
+          </aside>
 
-         
         </div>
-      </main>
+    
     </div>
   );
 }

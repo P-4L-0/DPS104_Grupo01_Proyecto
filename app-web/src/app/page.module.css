@@ -440,8 +440,11 @@
 /* Grid y textos */
 .issuesGrid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 0.875rem;
+  grid-template-columns: repeat(0, minmax(3, 1fr));
+  
+  
+
+
 }
 
 .emptyStateTitle {
@@ -540,6 +543,9 @@
   .siteHeaderTagline {
     display: block;
   }
+   .issuesGrid {
+    grid-template-columns: repeat(3, minmax(3, 1fr));
+  }
    
 }
 
@@ -550,11 +556,16 @@
   }
 
   .sidebarAside {
-    width: 16.5rem;
+    width: 18rem;
     flex-shrink: 0;
+    height: auto;
+    margin: 1rem;
   }
 
   .issuesGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(3, 1fr));
+     display: grid;
+     gap: 1rem;
+     
   }
 }
