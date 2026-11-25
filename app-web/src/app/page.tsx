@@ -1,7 +1,9 @@
-import IssueCard from './components/IssueCard';
+// 1. Cambiamos la importación de IssueCard por ListaReportes y los datos mock
+import { ListaReportes } from './components/ListaReporte';
+import { reportesIniciales } from './data/reportesMock';
 import styles from './page.module.css';
 
-const FILTER_OPTIONS = ['Todos', 'Reportados', 'En reparación', 'Resueltos'];
+const FILTER_OPTIONS = ['Todos', 'En revision', 'Pendientes', 'Resuelto'];
 const CATEGORIES = ['Todos', 'Baches', 'Alumbrado', 'Drenajes', 'Basura'];
 
 const STATS = [
@@ -34,13 +36,12 @@ export default function App() {
               </div>
 
               <h1 className={styles.heroTitle}>
-                Reportá.<br />
-                <span className={styles.heroTitleAccent}>Seguí.</span>{' '}
-                <span className={styles.heroTitleWhite}>Resolvé.</span>
+                Reportar<br />
+                <span className={styles.heroTitleAccent}>Reportes Comunitarios</span>{' '}
               </h1>
 
               <p className={styles.heroSubtitle}>
-                Reportá problemas locales en El Salvador — baches, cortes de energía y tragantes bloqueados — y seguí cada paso hasta su solución.
+                Reportá problemas locales en Comunidad — baches, cortes de energía y tragantes bloqueados — y seguí cada paso hasta su solución.
               </p>
             </div>
 
@@ -65,6 +66,8 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      
 
       <main className={`${styles.appMain} ${styles.appMainFeed}`}>
         <div className={styles.appLayout}>
@@ -107,19 +110,20 @@ export default function App() {
               ))}
             </div>
 
-            {/* Stream */}
-            <div className={styles.issuesGrid}>
-              {/* Tarjeta de ejemplo 1 */}
-              <IssueCard/>
-
-            </div>
-          </div>
-
-          {/* Seguimiento de Reportes */}
-          <aside className={styles.statCard}>
+               {/* Seguimiento de Reportes */}
+          <aside className={`${styles.statCard} ${styles.sidebarAside}`}>
             <p className={styles.emptyStateTitle}>Reportes seguidos</p>
             <p className={styles.emptyStateSubtitle}>Aquí aparecerán tus casos guardados.</p>
           </aside>
+
+            {/* Stream */}
+            <div className={styles.issuesGrid}>
+              {/* 2. Renderizamos la lista pasándole los datos */}
+              <ListaReportes reportes={reportesIniciales} />
+            </div>
+          </div>
+
+         
         </div>
       </main>
     </div>

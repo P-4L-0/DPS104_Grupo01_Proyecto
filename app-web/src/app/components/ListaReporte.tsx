@@ -1,12 +1,26 @@
-import { TarjetaReporte } from "./TarjetaReporte.jsx";
+import { TarjetaReporte } from "./TarjetaReporte";
 
-export function ListaReportes({ reportes }) {
+export interface Reporte {
+  id: string;
+  titulo: string;
+  categoria: string;
+  ubicacion: string;
+  estado: string;
+  fecha: string;
+  imagenUrl: string;
+}
+
+interface ListaReportesProps {
+  reportes: Reporte[];
+}
+
+export function ListaReportes({ reportes }: ListaReportesProps) {
   if (!reportes || reportes.length === 0) {
     return <p>No hay reportes comunitarios registrados por el momento.</p>;
   }
 
   return (
-    <section style={styles.grid}>
+    <>
       {reportes.map((item) => (
         <TarjetaReporte
           key={item.id}
@@ -18,15 +32,6 @@ export function ListaReportes({ reportes }) {
           imagenUrl={item.imagenUrl}
         />
       ))}
-    </section>
+    </>
   );
 }
-
-const styles = {
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-    gap: "16px",
-    marginTop: "16px"
-  }
-};

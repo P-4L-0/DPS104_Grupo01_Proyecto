@@ -1,4 +1,4 @@
-import styles from './IssueCard.module.css';
+import styles from '../style/IssueCard.module.css';
 
 export default function IssueCard() {
   return (

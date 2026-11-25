@@ -25,5 +25,32 @@ export const reportesIniciales = [
     estado: "Resuelto",
     fecha: "12 Nov 2026",
     imagenUrl: "https://placehold.co/400x200/dcfce7/166534?text=Foto+Luminaria"
-  }
+  },
+   {
+    id: "REP-004",
+    titulo: "Bache profundo en calle segundaria",
+    categoria: "Infraestructura",
+    ubicacion: "Entrada en porton 12 bache",
+    estado: "Pendiente",
+    fecha: "20 Nov 2026",
+    imagenUrl: "https://placehold.co/400x200/e2e8f0/1e293b?text=Foto+Bache"
+  },
+  {
+    id: "REP-005",
+    titulo: "Acumulación de basura ",
+    categoria: "Limpieza",
+    ubicacion: "Detras del porton 3",
+    estado: "En revisión",
+    fecha: "22 Nov 2026",
+    imagenUrl: "https://placehold.co/400x200/fef3c7/92400e?text=Foto+Basura"
+  },
+  {
+    id: "REP-006",
+    titulo: "Luminaria dañada de los baños",
+    categoria: "Alumbrado",
+    ubicacion: "Sector sur, Campus, edifico 6",
+    estado: "Resuelto",
+    fecha: "09 Nov 2026",
+    imagenUrl: "https://placehold.co/400x200/dcfce7/166534?text=Foto+Luminaria"
+  },
 ];
