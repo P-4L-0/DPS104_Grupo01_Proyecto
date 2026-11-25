@@ -1,5 +1,5 @@
 import React from "react";
-import { ReportesScreen } from "./src/screens/ReportesScreen";
+import IssueDetail from "./src/screens/IssueDetail";
 export default function App() {
-  return <ReportesScreen />;
+  return <IssueDetail />;
 }
