@@ -448,17 +448,8 @@
 
 /* Grid y textos */
 .issuesGrid {
-<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(0, minmax(3, 1fr));
-  
-  
-
-
-=======
-    display: grid;
-    grid-template-columns: repeat(0, minmax(3, 1fr));
->>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 .emptyStateTitle {
@@ -560,7 +551,7 @@
    .issuesGrid {
     grid-template-columns: repeat(3, minmax(3, 1fr));
   }
-   
+
 =======
     .siteHeaderTagline {
         display: block;
@@ -589,7 +580,7 @@
     grid-template-columns: repeat(3, minmax(3, 1fr));
      display: grid;
      gap: 1rem;
-     
+
   }
 =======
     .sidebarAside {
