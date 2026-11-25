@@ -213,19 +213,6 @@ export default function ReportForm({ onSubmit, onCancel }: Props) {
             )}
           </View>
 
-          {/* Selector de ciudad */}
-          <View style={styles.fieldGroup}>
-            <Text style={styles.label}>Ciudad</Text>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => setCityModalVisible(true)}
-              style={styles.selectButton}
-            >
-              <Text style={styles.selectText}>{city}</Text>
-              <Text style={styles.selectArrow}>▼</Text>
-            </TouchableOpacity>
-          </View>
-
           {/* Dirección */}
           <View style={styles.fieldGroup}>
             <Text style={styles.label}>
@@ -301,50 +288,6 @@ export default function ReportForm({ onSubmit, onCancel }: Props) {
           </View>
         </View>
       </View>
-
-      {/* Modal nativo para seleccionar ciudad */}
-      <Modal
-        visible={cityModalVisible}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setCityModalVisible(false)}
-      >
-        <Pressable
-          style={styles.modalOverlay}
-          onPress={() => setCityModalVisible(false)}
-        >
-          <View style={styles.modalSheet}>
-            <Text style={styles.modalTitle}>Seleccionar ciudad</Text>
-            <ScrollView style={{ maxHeight: 320 }}>
-              {SV_CITIES.map((item) => {
-                const isSelected = item === city;
-                return (
-                  <TouchableOpacity
-                    key={item}
-                    onPress={() => {
-                      setCity(item);
-                      setCityModalVisible(false);
-                    }}
-                    style={[
-                      styles.modalOption,
-                      isSelected && styles.modalOptionActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.modalOptionText,
-                        isSelected && { color: '#72a4ff', fontWeight: '700' },
-                      ]}
-                    >
-                      {item}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
-          </View>
-        </Pressable>
-      </Modal>
     </ScrollView>
   );
 }
