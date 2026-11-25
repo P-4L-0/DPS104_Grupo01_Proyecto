@@ -448,8 +448,13 @@
 
 /* Grid y textos */
 .issuesGrid {
+<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(0, minmax(3, 1fr));
+=======
+    display: grid;
+    grid-template-columns: repeat(0, minmax(3, 1fr));
+>>>>>>> 300867e (fix: fix code merges)
 }
 
 .emptyStateTitle {
@@ -518,9 +523,10 @@
         margin-bottom: 0.875rem;
     }
 
-    .statCardValue {
-        font-size: 1.875rem;
-    }
+  .statCardValue {
+    font-size: 1.875rem;
+
+  }
 
     .controlsBar {
         flex-direction: row;
@@ -544,22 +550,23 @@
 }
 
 @media (min-width: 768px) {
-<<<<<<< HEAD
   .siteHeaderTagline {
     display: block;
   }
+<<<<<<< HEAD
    .issuesGrid {
     grid-template-columns: repeat(3, minmax(3, 1fr));
   }
 
 =======
+=======
+>>>>>>> 300867e (fix: fix code merges)
     .siteHeaderTagline {
         display: block;
     }
     .issuesGrid {
         grid-template-columns: repeat(3, minmax(3, 1fr));
     }
->>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 @media (min-width: 1024px) {
@@ -582,7 +589,6 @@
      gap: 1rem;
 
   }
-=======
     .sidebarAside {
         width: 18rem;
         flex-shrink: 0;
@@ -595,7 +601,6 @@
         display: grid;
         gap: 1rem;
     }
->>>>>>> 3bc80b7 (update css de tarjetas)
 }
 
 .adminBtn {
@@ -615,4 +620,21 @@
 .adminBtn:hover {
     border-color: #2f75ff;
     color: #72a4ff;
+}
+
+.adminBtn {
+  border-radius: 0.5rem;
+  border: 1px solid #303949;
+  background-color: #161b22;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.adminBtn:hover {
+  border-color: #2f75ff;
+  color: #72a4ff;
 }
