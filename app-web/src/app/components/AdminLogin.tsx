@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import styles from '../AdminLogin.module.css';
+import styles from '../style/AdminLogin.module.css';
 
 interface Props {
   onLogin: (username: string, password: string) => boolean;

@@ -7,8 +7,6 @@ import type { Issue, IssueStatus } from './data/issues';
 import AdminLogin from './components/AdminLogin';
 import AdminReports from './components/AdminReports';
 
-type View = 'home' | 'admin-login' | 'admin';
-
 type View = "home" | "admin-login" | "admin";
 
 const FILTER_OPTIONS = ["Todos", "En revision", "Pendientes", "Resuelto"];
@@ -16,9 +14,6 @@ const CATEGORIES = ["Todos", "Baches", "Alumbrado", "Drenajes", "Basura"];
 
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "admin123";
-
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin123';
 
 const STATS = [
   { label: "Reportes totales", value: 24, variant: "total" },
