@@ -174,6 +174,7 @@ export const SAMPLE_ISSUES: Issue[] = [
     reportedAt: '2025-03-08T07:45:00Z',
     updatedAt: '2025-03-08T07:45:00Z',
     upvotes: 39,
+    photoUrl: 'https://tse3.mm.bing.net/th/id/OIP.AMx7yjnya0inDlhOxqb-vAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
     statusHistory: [
       { status: 'reported', date: '2025-03-08T07:45:00Z', note: 'Reporte enviado con fotografías de la intersección.' },
     ],
@@ -214,7 +215,7 @@ export const SAMPLE_ISSUES: Issue[] = [
     reportedAt: '2025-02-25T17:00:00Z',
     updatedAt: '2025-03-02T11:00:00Z',
     upvotes: 31,
-    photoUrl: 'https://images.unsplash.com/photo-1609180693254-a4a4fc7e00cf?w=700&h=440&fit=crop&auto=format',
+    photoUrl: 'https://tse3.mm.bing.net/th/id/OIP.M0ZEZYW9e34PJP5zbuqfjQHaFX?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
     statusHistory: [
       { status: 'reported', date: '2025-02-25T17:00:00Z', note: 'Daño documentado y enviado para revisión.' },
       { status: 'inprogress', date: '2025-02-28T08:00:00Z', note: 'Método de limpieza seguro para el patrimonio aprobado.' },

@@ -4,7 +4,7 @@
 }
 
 .appMain {
-    max-width: 64rem;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
@@ -31,7 +31,8 @@
 
 .sidebarAside {
     width: 100%;
-    min-width: 0;
+   width: auto;
+   display: row;
 }
 
 /* Botón primario */
@@ -145,7 +146,8 @@
 }
 
 .headerCtaFull {
-    display: none;
+    display: row;
+
 }
 
 /* Hero */

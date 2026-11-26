@@ -1,60 +1,56 @@
-"use client"
-import { useState } from 'react';
-import styles from './page.module.css';
-import { ListaReportes, type Reporte } from './components/ListaReporte';
-import { SAMPLE_ISSUES, CATEGORY_LABELS, STATUS_LABELS } from './data/issues';
-import type { Issue, IssueStatus } from './data/issues';
-import AdminLogin from './components/AdminLogin';
-import AdminReports from './components/AdminReports';
+"use client";
 
-type View = 'home' | 'admin-login' | 'admin';
+import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
+import { ListaReportes, type Reporte } from "./components/ListaReporte";
+import { CATEGORY_LABELS, STATUS_LABELS } from "./data/issues";
+import type { IssueCategory, IssueStatus } from "./data/issues";
+import AdminLogin from "./components/AdminLogin";
+import AdminReports from "./components/AdminReports";
+import { useIssues } from "./context/IssuesContext";
 
 type View = "home" | "admin-login" | "admin";
 
-const FILTER_OPTIONS = ["Todos", "En revision", "Pendientes", "Resuelto"];
-const CATEGORIES = ["Todos", "Baches", "Alumbrado", "Drenajes", "Basura"];
+const FILTER_OPTIONS: { label: string; value: "all" | IssueStatus }[] = [
+  { label: "Todos", value: "all" },
+  { label: "En revision", value: "inprogress" },
+  { label: "Pendientes", value: "reported" },
+  { label: "Resuelto", value: "resolved" },
+];
+
+const CATEGORY_CHIPS: { label: string; value: "all" | IssueCategory }[] = [
+  { label: "Todos", value: "all" },
+  { label: "Baches", value: "pothole" },
+  { label: "Alumbrado", value: "streetlight" },
+  { label: "Drenajes", value: "drainage" },
+  { label: "Basura", value: "other" },
+];
 
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "admin123";
 
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin123';
-
-const STATS = [
-  { label: "Reportes totales", value: 24, variant: "total" },
-  { label: "Recién reportados", value: 8, variant: "reported" },
-  { label: "En reparación", value: 6, variant: "inprogress" },
-  { label: "Resueltos", value: 10, variant: "resolved" },
-];
-
 export default function App() {
-  const [issues, setIssues] = useState<Issue[]>(SAMPLE_ISSUES);
-  const [view, setView] = useState<View>('home');
-  const [adminAuthenticated, setAdminAuthenticated] = useState(false);
+  const router = useRouter();
+  const { issues, updateIssueStatus } = useIssues();
 
-  // Transformación dinámica para que refleje cambios hechos desde el panel Admin
-  const reportesIniciales: Reporte[] = issues.map((issue) => ({
-    id: issue.id,
-    titulo: issue.title,
-    categoria: CATEGORY_LABELS[issue.category],
-    ubicacion: `${issue.neighborhood}, ${issue.city}`,
-    estado: STATUS_LABELS[issue.status],
-    fecha: new Intl.DateTimeFormat('es-SV', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    }).format(new Date(issue.reportedAt)),
-    imagenUrl: issue.photoUrl ?? '',
-  }));
+  const [view, setView] = useState<View>("home");
+  const [adminAuthenticated, setAdminAuthenticated] = useState(false);
+  const [statusFilter, setStatusFilter] = useState<"all" | IssueStatus>("all");
+  const [categoryFilter, setCategoryFilter] = useState<"all" | IssueCategory>("all");
+
+  function handleStartReport() {
+    router.push("/reportar/paso-1");
+  }
 
   function handleAdminClick() {
-    setView(adminAuthenticated ? 'admin' : 'admin-login');
+    setView(adminAuthenticated ? "admin" : "admin-login");
   }
 
   function handleLogin(username: string, password: string): boolean {
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       setAdminAuthenticated(true);
-      setView('admin');
+      setView("admin");
       return true;
     }
     return false;
@@ -62,50 +58,61 @@ export default function App() {
 
   function handleLogout() {
     setAdminAuthenticated(false);
-    setView('home');
+    setView("home");
   }
 
   function handleStatusChange(id: string, status: IssueStatus) {
-    setIssues((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, status, updatedAt: new Date().toISOString() }
-          : item
-      )
-    );
+    updateIssueStatus(id, status);
   }
+
+  const filteredIssues = useMemo(() => {
+    return issues.filter((issue) => {
+      const matchesStatus = statusFilter === "all" || issue.status === statusFilter;
+      const matchesCategory = categoryFilter === "all" || issue.category === categoryFilter;
+      return matchesStatus && matchesCategory;
+    });
+  }, [issues, statusFilter, categoryFilter]);
+
+  // Transformación dinámica para que refleje cambios hechos desde el panel Admin y nuevos reportes
+  const reportesIniciales: Reporte[] = filteredIssues.map((issue) => ({
+    id: issue.id,
+    titulo: issue.title,
+    categoria: CATEGORY_LABELS[issue.category],
+    ubicacion: `${issue.neighborhood}, ${issue.city}`,
+    estado: STATUS_LABELS[issue.status],
+    fecha: new Intl.DateTimeFormat("es-SV", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(issue.reportedAt)),
+    imagenUrl: issue.photoUrl ?? "",
+  }));
 
   return (
     <div className={styles.appPage}>
-      <Header
-        onGoHome={() => setView('home')}
-        onAdminClick={handleAdminClick}
-        isAdmin={adminAuthenticated}
-      />
+      
 
-        {view === 'admin-login' && (
-          <AdminLogin
-            onLogin={handleLogin}
-            onCancel={() => setView('home')}
-          />
-        )}
+      {view === "admin-login" && (
+        <AdminLogin
+          onLogin={handleLogin}
+          onCancel={() => setView("home")}
+        />
+      )}
 
-      {view === 'admin' && (
+      {view === "admin" && (
         <AdminReports
           issues={issues}
           onStatusChange={handleStatusChange}
-          onOpenIssue={(id) => console.log('Abrir detalle:', id)}
+          onOpenIssue={(id) => console.log("Abrir detalle:", id)}
           onLogout={handleLogout}
         />
       )}
 
-      {view === 'home' && (
+      {view === "home" && (
         <>
           {/* Hero */}
           <section className={styles.hero}>
-            <div className={styles.heroFlagAccent} />
-            <div className={styles.heroGlow} />
-
+           
             <div className={styles.heroContainer}>
               <div className={styles.heroTop}>
                 <div>
@@ -120,7 +127,7 @@ export default function App() {
 
                   <h1 className={styles.heroTitle}>
                     Reportar<br />
-                    <span className={styles.heroTitleAccent}>Reportes Comunitarios</span>{' '}
+                    <span className={styles.heroTitleAccent}>Reportes Comunitarios</span>{" "}
                   </h1>
 
                   <p className={styles.heroSubtitle}>
@@ -129,23 +136,15 @@ export default function App() {
                 </div>
 
                 <div className={styles.heroCtaBox}>
-                  <button type="button" className={`${styles.btnPrimary} ${styles.heroCtaBtn}`}>
+                  <button
+                    type="button"
+                    onClick={() => router.push("/reportar/paso-1") }
+                    className={`${styles.btnPrimary} ${styles.heroCtaBtn}`}
+                  >
                     + Reportar un problema
                   </button>
                   <p className={styles.heroCtaHint}>Te tomará menos de 2 minutos</p>
                 </div>
-              </div>
-
-              {/* Stats row */}
-              <div className={styles.statsGrid}>
-                {STATS.map((stat, index) => (
-                  <div key={index} className={`${styles.statCard} ${styles[`statCard_${stat.variant}`]}`}>
-                    <p className={`${styles.statCardValue} ${styles[`statCardValue_${stat.variant}`]}`}>
-                      {stat.value}
-                    </p>
-                    <p className={styles.statCardLabel}>{stat.label}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
@@ -157,13 +156,14 @@ export default function App() {
                 {/* Controls */}
                 <div className={styles.controlsBar}>
                   <div className={styles.filterGroup}>
-                    {FILTER_OPTIONS.map((f, index) => (
+                    {FILTER_OPTIONS.map((f) => (
                       <button
                         type="button"
-                        key={f}
-                        className={`${styles.filterBtn} ${index === 0 ? styles.filterBtnActive : ''}`}
+                        key={f.label}
+                        onClick={() => setStatusFilter(f.value)}
+                        className={`${styles.filterBtn} ${statusFilter === f.value ? styles.filterBtnActive : ""}`}
                       >
-                        {f}
+                        {f.label}
                       </button>
                     ))}
                   </div>
@@ -180,13 +180,14 @@ export default function App() {
 
                 {/* Categorias */}
                 <div className={styles.categoryChips}>
-                  {CATEGORIES.map((cat, index) => (
+                  {CATEGORY_CHIPS.map((cat) => (
                     <button
                       type="button"
-                      key={cat}
-                      className={`${styles.categoryChip} ${index === 0 ? styles.categoryChipActive : ''}`}
+                      key={cat.label}
+                      onClick={() => setCategoryFilter(cat.value)}
+                      className={`${styles.categoryChip} ${categoryFilter === cat.value ? styles.categoryChipActive : ""}`}
                     >
-                      {cat}
+                      {cat.label}
                     </button>
                   ))}
                 </div>
@@ -213,10 +214,11 @@ export default function App() {
 interface HeaderProps {
   onGoHome: () => void;
   onAdminClick: () => void;
+  onReportClick: () => void;
   isAdmin: boolean;
 }
 
-function Header({ onGoHome, onAdminClick, isAdmin }: HeaderProps) {
+function Header({ onGoHome, onAdminClick, onReportClick, isAdmin }: HeaderProps) {
   return (
     <header className={styles.siteHeader}>
       <div className={styles.siteHeaderInner}>
@@ -236,9 +238,13 @@ function Header({ onGoHome, onAdminClick, isAdmin }: HeaderProps) {
             onClick={onAdminClick}
             className={styles.adminBtn}
           >
-            {isAdmin ? 'Panel Admin' : 'Admin'}
+            {isAdmin ? "Panel Admin" : "Admin"}
           </button>
-          <button type="button" className={`${styles.btnPrimary} ${styles.headerCta}`}>
+          <button
+            type="button"
+            onClick={onReportClick}
+            className={`${styles.btnPrimary} ${styles.headerCta}`}
+          >
             <span className={styles.headerCtaShort}>+ Reportar</span>
             <span className={styles.headerCtaFull}>+ Reportar problema</span>
           </button>
