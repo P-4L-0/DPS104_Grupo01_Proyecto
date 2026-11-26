@@ -364,11 +364,7 @@ export default function Paso3Page() {
               <span>Anterior</span>
             </button>
 
-            <button type="button" 
-             onClick={() => router.push("/")}
-            className="step3-publish-btn">
-              Publicar reporte
-            </button>
+           <button type="submit" className="step3-publish-btn">Publicar reporte</button>
           </div>
         </form>
       </section>
