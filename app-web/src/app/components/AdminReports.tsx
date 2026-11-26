@@ -95,24 +95,32 @@ export default function AdminReports({ issues, onStatusChange, onOpenIssue, onLo
 
       <section className={styles['admin-stats-grid']}>
         {[
-          { label: 'Total', value: issues.length, toneClass: styles['tone-total'] },
+          {
+            label: 'Total',
+            value: issues.length,
+            toneClass: styles['tone-total'],
+            cardClass: '',
+          },
           {
             label: 'Reportados',
             value: issues.filter(i => i.status === 'reported').length,
             toneClass: styles['tone-reported'],
+            cardClass: styles['card-reported'],
           },
           {
             label: 'En reparación',
             value: issues.filter(i => i.status === 'inprogress').length,
             toneClass: styles['tone-inprogress'],
+            cardClass: styles['card-inprogress'],
           },
           {
             label: 'Resueltos',
             value: issues.filter(i => i.status === 'resolved').length,
             toneClass: styles['tone-resolved'],
+            cardClass: styles['card-resolved'],
           },
         ].map(item => (
-          <div key={item.label} className={styles['admin-stat-card']}>
+          <div key={item.label} className={`${styles['admin-stat-card']} ${item.cardClass}`}>
             <p className={`${styles['admin-stat-value']} ${item.toneClass}`}>{item.value}</p>
             <p className={styles['admin-stat-label']}>{item.label}</p>
           </div>
@@ -134,17 +142,23 @@ export default function AdminReports({ issues, onStatusChange, onOpenIssue, onLo
           </label>
 
           <div className={styles['admin-filter-group']} aria-label="Filtrar por estado">
-            {STATUS_OPTIONS.map(option => (
-              <button
-                key={option.value}
-                onClick={() => setStatusFilter(option.value)}
-                className={`${styles['admin-filter-btn']} ${
-                  statusFilter === option.value ? styles['is-active'] : ''
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
+            {STATUS_OPTIONS.map(option => {
+              const isActive = statusFilter === option.value;
+              const activeClass =
+                option.value === 'all'
+                  ? styles['is-active']
+                  : styles[`is-active-${option.value}`];
+
+              return (
+                <button
+                  key={option.value}
+                  onClick={() => setStatusFilter(option.value)}
+                  className={`${styles['admin-filter-btn']} ${isActive ? activeClass : ''}`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -313,7 +327,7 @@ export default function AdminReports({ issues, onStatusChange, onOpenIssue, onLo
                         <label
                           key={value}
                           className={`${styles['admin-radio-card']} ${
-                            isSelected ? styles['is-selected'] : ''
+                            isSelected ? styles[`is-selected-${value}`] : ''
                           }`}
                         >
                           <span className={styles['admin-radio-left']}>
@@ -323,7 +337,7 @@ export default function AdminReports({ issues, onStatusChange, onOpenIssue, onLo
                               value={value}
                               checked={isSelected}
                               onChange={() => setNextStatus(value)}
-                              className={styles['admin-radio-input']}
+                              className={`${styles['admin-radio-input']} ${styles[`radio-${value}`]}`}
                             />
                             <span className={styles['admin-radio-text']}>
                               {STATUS_LABELS[value]}
@@ -364,7 +378,11 @@ export default function AdminReports({ issues, onStatusChange, onOpenIssue, onLo
                       {index < editingIssue.statusHistory.length - 1 && (
                         <div className={styles['admin-timeline-line']} />
                       )}
-                      <div className={styles['admin-timeline-dot']} />
+                      <div
+                        className={`${styles['admin-timeline-dot']} ${
+                          styles[`dot-${entry.status}`]
+                        }`}
+                      />
                       <div className={styles['admin-min-w-0']}>
                         <div className={styles['admin-timeline-meta']}>
                           <p className={styles['admin-timeline-status']}>

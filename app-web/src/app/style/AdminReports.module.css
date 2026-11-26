@@ -133,6 +133,16 @@
   padding: 0.75rem 1rem;
 }
 
+.card-reported {
+  border-top: 2px solid #f87171;
+}
+.card-inprogress {
+  border-top: 2px solid #fcd34d;
+}
+.card-resolved {
+  border-top: 2px solid #34d399;
+}
+
 .admin-stat-value {
   margin: 0;
   font-size: 1.25rem;
@@ -242,6 +252,24 @@
   border-color: #2f75ff;
   background-color: #2f75ff;
   color: #ffffff;
+}
+
+.admin-filter-btn.is-active-reported {
+  border-color: rgba(248, 113, 113, 0.5);
+  background-color: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+}
+
+.admin-filter-btn.is-active-inprogress {
+  border-color: rgba(252, 211, 77, 0.5);
+  background-color: rgba(252, 211, 77, 0.15);
+  color: #fcd34d;
+}
+
+.admin-filter-btn.is-active-resolved {
+  border-color: rgba(52, 211, 153, 0.5);
+  background-color: rgba(52, 211, 153, 0.15);
+  color: #34d399;
 }
 
 /* Estado vacío */
@@ -645,9 +673,19 @@
   border-color: #465267;
 }
 
-.admin-radio-card.is-selected {
-  border-color: #2f75ff;
-  background-color: rgba(47, 117, 255, 0.1);
+.admin-radio-card.is-selected-reported {
+  border-color: #f87171;
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+.admin-radio-card.is-selected-inprogress {
+  border-color: #fcd34d;
+  background-color: rgba(252, 211, 77, 0.1);
+}
+
+.admin-radio-card.is-selected-resolved {
+  border-color: #34d399;
+  background-color: rgba(52, 211, 153, 0.1);
 }
 
 .admin-radio-left {
@@ -658,6 +696,18 @@
 
 .admin-radio-input {
   accent-color: #2f75ff;
+}
+
+.radio-reported {
+  accent-color: #f87171;
+}
+
+.radio-inprogress {
+  accent-color: #fcd34d;
+}
+
+.radio-resolved {
+  accent-color: #34d399;
 }
 
 .admin-radio-text {
@@ -743,6 +793,21 @@
   box-sizing: border-box;
 }
 
+.dot-reported {
+  background-color: #f87171;
+  box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.45);
+}
+
+.dot-inprogress {
+  background-color: #fcd34d;
+  box-shadow: 0 0 0 1px rgba(252, 211, 77, 0.45);
+}
+
+.dot-resolved {
+  background-color: #34d399;
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.45);
+}
+
 .admin-timeline-meta {
   display: flex;
   flex-wrap: wrap;
@@ -778,7 +843,7 @@
   padding-top: 1rem;
 }
 
-/* Breakpoints responsivos (equivalentes a sm: 640px y md: 768px) */
+/* Breakpoints responsivos */
 @media (min-width: 640px) {
   .admin-container {
     padding: 2.25rem 1.5rem;

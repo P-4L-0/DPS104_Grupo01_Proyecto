@@ -110,16 +110,15 @@ export default function App() {
                       <div className={`${styles.heroFlagStripe} ${styles.heroFlagStripeWhite}`} />
                       <div className={`${styles.heroFlagStripe} ${styles.heroFlagStripeBlue}`} />
                     </div>
-                    <span className={styles.heroEyebrow}>El Salvador · Plataforma de acción ciudadana</span>
+                    <span className={styles.heroEyebrow}>Plataforma de acción ciudadana</span>
                   </div>
 
                   <h1 className={styles.heroTitle}>
-                    Reportar<br />
                     <span className={styles.heroTitleAccent}>Reportes Comunitarios</span>{' '}
                   </h1>
 
                   <p className={styles.heroSubtitle}>
-                    Reportá problemas locales en Comunidad — baches, cortes de energía y tragantes bloqueados — y seguí cada paso hasta su solución.
+                    Reportá problemas locales en tu Comunidad — baches, cortes de energía y tragantes bloqueados — y seguí cada paso hasta su solución.
                   </p>
                 </div>
 
